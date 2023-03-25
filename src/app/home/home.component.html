@@ -15,10 +15,10 @@
   </div>
 
   <div *ngIf="characterList.length">
-    <h3>Rick and Morty Character List!</h3>
+    <h3>Somos felices!</h3>
     <div *ngFor="let character of characterList">
-      <h4>{{ character.id }} - {{ character.name }}</h4>
-      <img [src]="character.image" [alt]="character.name">
+      <h4>{{ character.name }}</h4>
+      <img [src]="character.foto" [alt]="character.name">
     </div>
   </div>
 

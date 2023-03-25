@@ -1,5 +1,5 @@
+import { EventInterface } from './models/events.model';
 import { Component, OnInit } from '@angular/core';
-import { CharacterInterface, CharacterResponseInterface } from 'src/app/home/models/events.model'
 import { ApiRequestService } from 'src/app/services/api-request.service';
 
 @Component({
@@ -7,16 +7,17 @@ import { ApiRequestService } from 'src/app/services/api-request.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  characterList: CharacterInterface[] = [];
+export class HomeComponent {
+  characterList: EventInterface[] = [];
 
   // Llamamos a nuestro servicio o inicializamos servicio
   constructor(private apiRequestService: ApiRequestService) {}
 
   // Al arrancar nuestra aplicación:
   ngOnInit() {
-    this.apiRequestService.getCharacters().subscribe((data: CharacterResponseInterface) => {
-      this.characterList = data.results;
+    this.apiRequestService.getEvents().subscribe((data: EventInterface[]) => {
+     console.log(data);
+      this.characterList = data;
     })
   }
 }
