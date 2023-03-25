@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userData.name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userData.password">
+  </div>
+  <div class="form-group">
+    <label for="birthdate">Birthdate</label>
+    <input type="text" class="form-control" id="birthdate" name="birthdate" [(ngModel)]="userData.birthdate">
+  </div>
+  <div class="form-group">
+    <label for="password">Location</label>
+    <input type="text" class="form-control" id="location" name="location" [(ngModel)]="userData.location">
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
