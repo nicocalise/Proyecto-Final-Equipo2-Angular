@@ -11,6 +11,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class MenuComponent {
 
   options = [  { name: 'Home', route: '/home' },  { name: 'About Us', route: '/about-us' },  { name: 'User', route: '/user' }, { name: 'Log in', route: '/login' } ];
+  useMenu = true;
 
   onMenuItemClick(event: MouseEvent, menuItem: { name: string, route: string }) {
     //this.menuTrigger.closeMenu(); // close the menu
@@ -18,5 +19,31 @@ export class MenuComponent {
     event.preventDefault(); // prevent the default link behavior
   }
 
-  constructor(private router: Router, private menuTrigger: MatMenuModule) { }
+  mobileQuery: MediaQueryList;
+
+private readonly mobileQueryListener: () => void;
+
+constructor(private router: Router, private menuTrigger: MatMenuModule, private media: MediaMatcher) {
+  this.mobileQuery = this.media.matchMedia('(max-width: 650px)');
+  this.mobileQueryListener = () => this.updateForScreenSize();
+  this.mobileQuery.addEventListener('change', this.mobileQueryListener);
+}
+
+ngOnInit(): void {
+  this.updateForScreenSize();
+}
+
+ngOnDestroy(): void {
+  this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
+}
+
+private updateForScreenSize() {
+  if (this.mobileQuery.matches) {
+    this.useMenu = true;
+  } else {
+    this.useMenu = false;
+  }
+}
+
+
 }
