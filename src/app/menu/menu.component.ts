@@ -55,42 +55,22 @@ private updateForScreenSize() {
   }
 }
 
-//public logout() {
-//
-//  debugger
-//  const token = this.cookieService.get('token');
-//  this.cookieService.delete('token');
-//
-//  let headers = new Headers({
-//    'Authorization' : 'Bearer ' + token,
-//    'Content-type' : 'application/json',
-//  });
-//  
-//
-//  this.http.post<any>('http://localhost:3000/users/logout', null, { headers }).subscribe(
-//      (response) => {
-//      
-//        console.log(response);
-//        
-//      },
-//      (error) => {
-//        console.log(error);
-//        
-//        this.router.navigate(['/register']);
-//      }
-//    );
-//}
-
 public logout()
 {
-  debugger
   const token = this.cookieService.get('token');
   this.cookieService.delete('token');
 
   const url = 'http://localhost:3000/users/logout';
-  const headers = new HttpHeaders()
-    .set('x-auth-token', token);
+  let headers = new HttpHeaders({
+        'Authorization' : 'Bearer ' + token,
+        'Content-type' : 'application/json',
+  });
 
-  return this.http.post(url, '' ,{headers: headers, responseType: 'text'})};
+  return this.http.post(url, '' ,{ headers: headers } ).subscribe(
+          (response) => {
+          
+            console.log(response);
+            
+          });
 
-}
+}};
