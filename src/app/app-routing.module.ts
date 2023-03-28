@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'event-details/:event._id', component: EventDetailsComponent },
   { path: 'event-details/delete/:event._id', component: EventDetailsComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'new-event', component: NewEventComponent },
 ];
