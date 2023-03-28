@@ -1,4 +1,4 @@
-import { JwtHelperService } from '@auth0/angular-jwt';
+//import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
@@ -55,7 +55,7 @@ import { NewEventComponent } from './new-event/new-event.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiRequestService, AuthGuard, AuthService, JwtHelperService],
+  providers: [ApiRequestService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
