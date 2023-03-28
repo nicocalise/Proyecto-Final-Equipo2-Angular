@@ -18,6 +18,13 @@
 </mat-toolbar>
 
 
+<app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
+<ul>
+  <li *ngFor="let result of searchResults">
+    {{ result.name }}
+  </li>
+</ul>
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
