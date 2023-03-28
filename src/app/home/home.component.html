@@ -17,7 +17,7 @@
   <div *ngIf="eventList.length">
     <h3>Eventos</h3>
       <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
-    <div class="crud-buttons">
+    <div *ngIf="isAdmin" class="crud-buttons">
       <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
     </div>
     <div *ngFor="let event of eventList">

@@ -8,12 +8,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  userData = { name: '', email: '', password: '', birthdate: '', location: '' };
-  // name: { type: String, required: true },
-  // email: { type: String, required: true },
-  // password:{ type: String, required: true },
-  // birthdate: { type: String, required: true },
-  // location: { type: String, required: true },
+  //TODO crear modelo del usuario.
+  userData = { name: '', email: '', password: '', birthdate: '', location: '', rol: 'user' };
+
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
