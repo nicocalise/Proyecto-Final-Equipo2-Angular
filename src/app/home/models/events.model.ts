@@ -7,6 +7,7 @@
 //}
 
 export interface EventInterface{
+  _id: number;
   name: string;
   description: string;
   location : string;

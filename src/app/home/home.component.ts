@@ -1,5 +1,5 @@
 import { EventInterface } from './models/events.model';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiRequestService } from 'src/app/services/api-request.service';
 
 @Component({
@@ -8,16 +8,14 @@ import { ApiRequestService } from 'src/app/services/api-request.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  characterList: EventInterface[] = [];
+  eventList: EventInterface[] = [];
 
-  // Llamamos a nuestro servicio o inicializamos servicio
   constructor(private apiRequestService: ApiRequestService) {}
 
-  // Al arrancar nuestra aplicación:
   ngOnInit() {
     this.apiRequestService.getEvents().subscribe((data: EventInterface[]) => {
      console.log(data);
-      this.characterList = data;
+      this.eventList = data;
     })
   }
 }
