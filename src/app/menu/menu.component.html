@@ -7,6 +7,7 @@
     <button mat-menu-item *ngFor="let menuItem of options" (click)="onMenuItemClick($event, menuItem)">
       {{ menuItem.name }}
     </button>
+    <button>Logout</button>
   </mat-menu>
 </div>
 
@@ -14,6 +15,7 @@
   <button mat-button *ngFor="let menuItem of options" [routerLink]="menuItem.route">
     {{ menuItem.name }}
   </button>
+  <button (click)="logout()">Logout</button>
 </ng-template>
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->

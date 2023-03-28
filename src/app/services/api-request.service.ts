@@ -15,4 +15,12 @@ export class ApiRequestService {
   getEvents():Observable<any> {
     return this.http.get(eventURL)
   }
+
+  getEventID(id:string):Observable<any>{
+    return this.http.get(eventURL+'/'+id);
+  }
+
+  deleteEventID(id:string):Observable<any>{
+    return this.http.delete(eventURL+'/'+id);
+  }
 };

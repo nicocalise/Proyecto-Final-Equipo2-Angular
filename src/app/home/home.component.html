@@ -1,5 +1,3 @@
-<p>home works!</p>
-
 <div class="container">
 
   
@@ -10,12 +8,18 @@
     <button mat-button>Filter 3</button>
   </div>
 
-  <div *ngIf="characterList.length">
-    <h3>Somos felices!</h3>
-    <div *ngFor="let character of characterList">
-      <h4>{{ character.name }}</h4>
-      <img [src]="character.foto" [alt]="character.name">
+
+
+  <div *ngIf="eventList.length">
+    <h3>Eventos</h3>
+      <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
+    <div class="crud-buttons">
+      <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
+    </div>
+    <div *ngFor="let event of eventList">
+      <!--<h4>{{ event.name }}</h4>-->
+      <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event._id }} - {{ event.name }}</a>
+      <img style="width:80px; height:80px"  [src]="event.foto" [alt]="event.name">
     </div>
   </div>
-
 </div>
