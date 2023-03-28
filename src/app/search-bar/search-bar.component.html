@@ -1,0 +1,9 @@
+<mat-form-field>
+  <input matInput placeholder="Search" [formControl]="searchControl">
+  <button mat-button *ngIf="searchControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchControl.setValue('')">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+
+<router-outlet></router-outlet>

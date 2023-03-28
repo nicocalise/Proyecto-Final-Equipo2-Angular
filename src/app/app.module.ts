@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,7 @@ import {ApiRequestService} from 'src/app/services/api-request.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { SearchBarComponent } from './search-bar/search-bar.component'
 import { NewEventComponent } from './new-event/new-event.component'
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NewEventComponent } from './new-event/new-event.component'
     RegisterComponent,
     LoginComponent,
     MenuComponent,
-    NewEventComponent
+    SearchBarComponent,
+    NewEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { NewEventComponent } from './new-event/new-event.component'
     MatButtonToggleModule,
     LayoutModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [ApiRequestService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
