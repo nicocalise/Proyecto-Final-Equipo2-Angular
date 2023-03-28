@@ -20,12 +20,10 @@ export class RegisterComponent {
     this.http.post<any>('http://localhost:3000/users/register', this.userData).subscribe(
         
     (response) => {
-        debugger
         console.log(response);
         this.router.navigate(['/login']);
       },
       (error) => {
-        debugger
         console.log(error);
         this.router.navigate(['/login']);
       }

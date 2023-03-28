@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {ApiRequestService} from 'src/app/services/api-request.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { MenuComponent } from './menu/menu.component'
+import { MenuComponent } from './menu/menu.component';
+import { NewEventComponent } from './new-event/new-event.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { MenuComponent } from './menu/menu.component'
     EventDetailsComponent,
     RegisterComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { MenuComponent } from './menu/menu.component'
     MatToolbarModule,
     MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatListModule,
     MatButtonToggleModule,

@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="eventData.name">
+    </div>
+    <div class="form-group">
+      <label for="description">Descripcion</label>
+      <input type="text" class="form-control" id="description" name="description" [(ngModel)]="eventData.description">
+    </div>
+    <div class="form-group">
+      <label for="location">Lugar del evento</label>
+      <input type="text" class="form-control" id="location" name="location" [(ngModel)]="eventData.location">
+    </div>
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="text" class="form-control" id="date" name="date" [(ngModel)]="eventData.date">
+    </div>
+    <div class="form-group">
+      <label for="eventType">Categoria</label>
+      <input type="text" class="form-control" id="eventType" name="eventType" [(ngModel)]="eventData.eventType">
+    </div>
+      <div class="form-group">
+        <label for="capacity">Capacidad</label>
+        <input type="text" class="form-control" id="capacity" name="capacity" [(ngModel)]="eventData.capacity">
+      </div>
+      <div class="form-group">
+        <label for="duration">Duracion</label>
+        <input type="text" class="form-control" id="duration" name="duration" [(ngModel)]="eventData.duration">
+      </div>
+      <div class="form-group">
+        <label for="foto">Imagen</label>
+        <input type="text" class="form-control" id="foto" name="foto" [(ngModel)]="eventData.foto">
+      </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
