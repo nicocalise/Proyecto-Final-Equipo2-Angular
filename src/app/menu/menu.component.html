@@ -1,0 +1,19 @@
+<div *ngIf="useMenu; else buttons">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+    <button mat-menu-item *ngFor="let menuItem of options" (click)="onMenuItemClick($event, menuItem)">
+      {{ menuItem.name }}
+    </button>
+  </mat-menu>
+</div>
+
+<ng-template #buttons>
+  <button mat-button *ngFor="let menuItem of options" [routerLink]="menuItem.route">
+    {{ menuItem.name }}
+  </button>
+</ng-template>
+
+<router-outlet></router-outlet>

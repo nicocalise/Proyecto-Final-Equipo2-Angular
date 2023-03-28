@@ -13,11 +13,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatMenuModule} from '@angular/material/menu';
 import {LayoutModule} from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import {ApiRequestService} from 'src/app/services/api-request.service';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { LoginComponent } from './login/login.component'
     UserComponent,
     EventDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { LoginComponent } from './login/login.component'
     MatToolbarModule,
     MatFormFieldModule,
     MatIconModule,
+    MatMenuModule,
     MatListModule,
+    MatButtonToggleModule,
     LayoutModule,
     HttpClientModule,
     FormsModule
