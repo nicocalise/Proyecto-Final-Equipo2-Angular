@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class LoginComponent {
   userData = { email: '', password: '' };
+  token= this.cookieService.get('token');
 
   constructor(private http: HttpClient,private router: Router,private cookieService: CookieService) {}
 
@@ -21,17 +22,21 @@ export class LoginComponent {
         this.cookieService.set('rol', response.data.user.user);
         if(response.data){
         this.router.navigate(['/about-us']);
+        location.reload();
         }else{
-        console.log('No coinciden mail o contraseña ingresados');  
+        console.log('No coinciden mail o contraseña ingresados');
         }
       },
       (error) => {
         console.log(error);
-        
+
         this.router.navigate(['/register']);
       }
     );
   }
+
+
+
 }
 
 

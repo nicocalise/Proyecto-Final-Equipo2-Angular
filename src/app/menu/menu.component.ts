@@ -20,6 +20,9 @@ export class MenuComponent {
               ];
   useMenu = true;
 
+  token= this.cookieService.get('token');
+
+
   onMenuItemClick(event: MouseEvent, menuItem: { name: string, route: string }) {
     //this.menuTrigger.closeMenu(); // close the menu
     this.router.navigateByUrl(menuItem.route); // navigate to the selected route
@@ -72,7 +75,7 @@ public logout()
           (response) => {
 
             console.log(response);
-
+            location.reload();
           });
 
 }};
