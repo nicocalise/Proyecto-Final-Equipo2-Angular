@@ -18,6 +18,7 @@ export class LoginComponent {
       (response) => {
         console.log(response);
         this.cookieService.set('token', response.data.token);
+        this.cookieService.set('rol', response.data.user.user);
         if(response.data){
         this.router.navigate(['/about-us']);
         }else{

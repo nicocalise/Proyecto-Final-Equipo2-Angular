@@ -60,6 +60,7 @@ public logout()
 {
   const token = this.cookieService.get('token');
   this.cookieService.delete('token');
+  this.cookieService.delete('rol');
 
   const url = 'http://localhost:3000/users/logout';
   let headers = new HttpHeaders({
