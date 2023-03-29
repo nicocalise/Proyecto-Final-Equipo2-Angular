@@ -6,7 +6,7 @@
       <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
     </div>
   <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
-    <div *ngIf="searchResults.length;">
+    <div *ngIf="searchResults.length;else other_content">
     <ul *ngFor="let result of searchResults">
       <li>
         <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result._id }} - {{ result.name }}</a>
@@ -14,7 +14,7 @@
       </li>
     </ul>
   </div>
-<!--
+
   <ng-template #other_content>
     <div>
       <ul *ngFor="let event of eventList">
@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-  </ng-template> -->
+  </ng-template>
   </div>
 </div>
 
