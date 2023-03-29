@@ -1,25 +1,31 @@
 <div class="container">
-
-  
-
-  <div class="filter-buttons">
-    <button mat-button>Filter 1</button>
-    <button mat-button>Filter 2</button>
-    <button mat-button>Filter 3</button>
-  </div>
-
-
-
   <div *ngIf="eventList.length">
     <h3>Eventos</h3>
       <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
     <div *ngIf="isAdmin" class="crud-buttons">
       <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
     </div>
-    <div *ngFor="let event of eventList">
-      <!--<h4>{{ event.name }}</h4>-->
-      <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event._id }} - {{ event.name }}</a>
-      <img style="width:80px; height:80px"  [src]="event.foto" [alt]="event.name">
+  <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
+    <div *ngIf="searchResults.length;">
+    <ul *ngFor="let result of searchResults">
+      <li>
+        <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result._id }} - {{ result.name }}</a>
+        <img style="width:80px; height:80px"  [src]="result.foto" [alt]="result.name">
+      </li>
+    </ul>
+  </div>
+<!--
+  <ng-template #other_content>
+    <div>
+      <ul *ngFor="let event of eventList">
+        <li>
+          <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event._id }} - {{ event.name }}</a>
+          <img style="width:80px; height:80px"  [src]="event.foto" [alt]="event.name">
+        </li>
+      </ul>
     </div>
+  </ng-template> -->
   </div>
 </div>
+
+
