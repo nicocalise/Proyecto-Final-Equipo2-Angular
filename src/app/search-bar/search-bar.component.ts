@@ -16,7 +16,7 @@ export class SearchBarComponent {
     this.searchControl.valueChanges.pipe(
       debounceTime(500) // debounce for 500ms to reduce API requests
     ).subscribe(value => {
-      this.searchEvent.emit(value="");
+      this.searchEvent.emit(value?.toString());
     });
   }
 }

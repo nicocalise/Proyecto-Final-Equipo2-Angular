@@ -12,9 +12,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class MenuComponent {
 
-  options = [  { name: 'Home', route: '/home' },  
-              { name: 'About Us', route: '/about-us' },  
-              { name: 'User', route: '/user' }, 
+  options = [  { name: 'Home', route: '/home' },
+              { name: 'About Us', route: '/about-us' },
+              { name: 'User', route: '/user' },
+              { name: 'Register', route: '/register' },
               { name: 'Log in', route: '/login' }
               ];
   useMenu = true;
@@ -29,8 +30,8 @@ export class MenuComponent {
 
 private readonly mobileQueryListener: () => void;
 
-constructor(  private router: Router, 
-              private menuTrigger: MatMenuModule, 
+constructor(  private router: Router,
+              private menuTrigger: MatMenuModule,
               private media: MediaMatcher,
               private http: HttpClient,
               private cookieService: CookieService) {
@@ -68,9 +69,9 @@ public logout()
 
   return this.http.post(url, '' ,{ headers: headers } ).subscribe(
           (response) => {
-          
+
             console.log(response);
-            
+
           });
 
 }};
