@@ -18,9 +18,9 @@ export class LoginComponent {
     this.http.post<any>('http://localhost:3000/users/login', this.userData).subscribe(
       (response) => {
         console.log(response);
-
         this.cookieService.set('token', response.data.token);
         this.cookieService.set('rol', response.data.user.rol);
+        this.cookieService.set('id', response.data.user._id);
         if(response.data){
         this.router.navigate(['/about-us']);
         location.reload();
