@@ -7,7 +7,6 @@
 			</h2>
 		</div>
 <form class="card-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
   <div class="input" [formGroup]="registerForm">
   <input class="input-field" formControlName="name">
   <label class="input-label" for="name">Name</label>
@@ -17,8 +16,12 @@
     <label class="input-label" for="email">Email</label>
   </div>
   <div class="input" [formGroup]="registerForm">
-    <input class="input-field" formControlName="password">
-    <label class="input-label" for="password">Email</label>
+    <input class="input-field" type="password" formControlName="password">
+    <label class="input-label" for="password">Password</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" type="password" formControlName="repeatPassword">
+    <label class="input-label" for="repeatPassword">Repeat Password</label>
   </div>
   <div class="input" [formGroup]="registerForm">
     <input class="input-field" formControlName="birthdate">
@@ -36,8 +39,7 @@
   <div class="card-info">
     <p>By registering up you are agreeing to our Terms and Conditions</p>
   </div>
-
   <div class="registerBtnContainer">
-  <button  type="submit" class="registerBtn">Register</button>
+  <button  type="submit" class="registerBtn" [disabled]="!registerForm.valid">Register</button>
 </div>
 </form>
