@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { EventInterface } from './../home/models/events.model';
@@ -13,8 +14,12 @@ export class EventDetailsComponent {
 
   public eventId: string ='';
   public event?: EventInterface;
+  public idUser: string ='';
 
-  constructor(private activatedRoute: ActivatedRoute, private requestService: ApiRequestService, private http: HttpClient) {}
+  constructor(private activatedRoute: ActivatedRoute, 
+              private requestService: ApiRequestService, 
+              private http: HttpClient, 
+              private coockieService:CookieService) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -51,6 +56,7 @@ export class EventDetailsComponent {
   }
 
   public buyTickets(quantity:string):void{
+    this.idUser= this.coockieService.get('id');
     this.activatedRoute.paramMap.subscribe((params) => {
       const eventId = params.get('event._id') as string;
       const cantidad_comprada = quantity;
@@ -67,11 +73,24 @@ export class EventDetailsComponent {
       (error) => {
         console.log(error);
       }
+
     );
+    debugger
+    this.http.post<any>('http://localhost:3000/tickets/comprar/',
+    { idUser: this.idUser, idEvent: eventId}
+    ).subscribe(
+    
+   (response) => {
+     console.log(response);
+     location.reload();
+     //this.cookieService.set('rol', response.data.user.user);
+   },
+   (error) => {
+     console.log(error);
+   }
+
+ );
 
     });    
-
-    
   }
-
 }
