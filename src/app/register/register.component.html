@@ -1,24 +1,43 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  ...
+<div class="container">
+	<div class="card">
+		<div class="card-image">
+			<h2 class="card-heading">
+				First step
+				<small>Let´s create your account</small>
+			</h2>
+		</div>
+<form class="card-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-  <div class="register-form-container" [formGroup]="registerForm">Name
-    <input formControlName="name">
+  <div class="input" [formGroup]="registerForm">
+  <input class="input-field" formControlName="name">
+  <label class="input-label" for="name">Name</label>
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Email
-    <input formControlName="email">
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="email">
+    <label class="input-label" for="email">Email</label>
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Password
-    <input formControlName="password">
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="password">
+    <label class="input-label" for="password">Email</label>
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Birthdate
-    <input formControlName="birthdate">
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="birthdate">
+    <label class="input-label" for="birthdate">Birthdate</label>
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Location
-    <input formControlName="location">
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="location">
+    <label class="input-label" for="location">Location</label>
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Rol
-    <input formControlName="rol">
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="rol">
+    <label class="input-label" for="rol">Rol</label>
   </div>
 
-  <button class="register-btn" type="submit" class="btn btn-primary">Register</button>
+  <div class="card-info">
+    <p>By registering up you are agreeing to our Terms and Conditions</p>
+  </div>
+
+  <div class="registerBtnContainer">
+  <button  type="submit" class="registerBtn">Register</button>
+</div>
 </form>
