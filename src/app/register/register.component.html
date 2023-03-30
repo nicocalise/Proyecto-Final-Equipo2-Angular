@@ -1,24 +1,27 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   ...
 
-  <div class="register-form-container" [formGroup]="registerForm">Name
+  <div class="register-form-container" for="name" [formGroup]="registerForm">Name
     <input formControlName="name">
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Email
-    <input formControlName="email">
+  <div class="register-form-container" for="email"  [formGroup]="registerForm">Email
+    <input type="email" formControlName="email">
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Password
-    <input formControlName="password">
+  <div class="register-form-container" for="password"  [formGroup]="registerForm">Password
+    <input type="password" formControlName="password">
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Birthdate
-    <input formControlName="birthdate">
+  <div class="register-form-container" for="repeatPassword" [formGroup]="registerForm">Repeat Password
+    <input type="password" formControlName="repeatPassword">
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Location
+  <div class="register-form-container" for="birthdate"  [formGroup]="registerForm">Birthdate
+    <input type="date" formControlName="birthdate">
+  </div>
+  <div class="register-form-container" for="location" [formGroup]="registerForm">Location
     <input formControlName="location">
   </div>
-  <div class="register-form-container" [formGroup]="registerForm">Rol
+  <div class="register-form-container" for="rol" [formGroup]="registerForm">Rol
     <input formControlName="rol">
   </div>
 
-  <button class="register-btn" type="submit" class="btn btn-primary">Register</button>
+  <button class="register-btn" type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Register</button>
 </form>
