@@ -1,10 +1,11 @@
 <div class="container">
+  <div *ngIf="isAdmin" class="crud-buttons">
+    <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
+  </div>
   <div *ngIf="eventList.length">
     <h3>Eventos</h3>
       <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
-    <div *ngIf="isAdmin" class="crud-buttons">
-      <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
-    </div>
+
   <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
     <div *ngIf="searchResults.length;else other_content">
     <ul *ngFor="let result of searchResults">

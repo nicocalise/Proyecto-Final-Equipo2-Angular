@@ -1,27 +1,24 @@
-<form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userData.name">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  ...
+
+  <div class="register-form-container" [formGroup]="registerForm">Name
+    <input formControlName="name">
   </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userData.email">
+  <div class="register-form-container" [formGroup]="registerForm">Email
+    <input formControlName="email">
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userData.password">
+  <div class="register-form-container" [formGroup]="registerForm">Password
+    <input formControlName="password">
   </div>
-  <div class="form-group">
-    <label for="birthdate">Birthdate</label>
-    <input type="text" class="form-control" id="birthdate" name="birthdate" [(ngModel)]="userData.birthdate">
+  <div class="register-form-container" [formGroup]="registerForm">Birthdate
+    <input formControlName="birthdate">
   </div>
-  <div class="form-group">
-    <label for="password">Location</label>
-    <input type="text" class="form-control" id="location" name="location" [(ngModel)]="userData.location">
+  <div class="register-form-container" [formGroup]="registerForm">Location
+    <input formControlName="location">
   </div>
-  <div class="form-group">
-    <label hidden for="rol">Tipo de usuario</label>
-    <input hidden type="text" class="form-control" id="rol" name="rol" disabled="true"[(ngModel)]="userData.rol">
+  <div class="register-form-container" [formGroup]="registerForm">Rol
+    <input formControlName="rol">
   </div>
-  <button type="submit" class="btn btn-primary">Register</button>
+
+  <button class="register-btn" type="submit" class="btn btn-primary">Register</button>
 </form>
