@@ -3,7 +3,7 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+  <mat-menu #menu="matMenu"  xPosition="before" yPosition="below">
     <button mat-menu-item *ngFor="let menuItem of options" (click)="onMenuItemClick($event, menuItem)">
       {{ menuItem.name }}
     </button>
@@ -12,7 +12,7 @@
 </div>
 
 <ng-template #buttons>
-  <button mat-button *ngFor="let menuItem of options" [routerLink]="menuItem.route">
+  <button mat-button class="customizeButton" *ngFor="let menuItem of options" [routerLink]="menuItem.route">
     {{ menuItem.name }}
   </button>
   <button *ngIf="token" (click)="logout()">Logout</button>

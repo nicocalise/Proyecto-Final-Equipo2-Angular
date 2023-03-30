@@ -3,26 +3,32 @@
     <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
   </div>
   <div *ngIf="eventList.length">
-    <h3>Eventos</h3>
+    <p class="mainLogo">EVENTS</p>
       <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
 
   <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
     <div *ngIf="searchResults.length;else other_content">
-    <ul *ngFor="let result of searchResults">
+    <ul class="list" *ngFor="let result of searchResults">
+      <div class="eventBorder">
       <li>
-        <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result._id }} - {{ result.name }}</a>
+        <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result.name }}</a>
+        <a class="spacer"></a>
         <img style="width:80px; height:80px"  [src]="result.foto" [alt]="result.name">
       </li>
+    </div>
     </ul>
   </div>
 
   <ng-template #other_content>
     <div>
-      <ul *ngFor="let event of eventList">
+      <ul class="list" *ngFor="let event of eventList">
+        <div class="eventBorder">
         <li>
-          <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event._id }} - {{ event.name }}</a>
+          <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event.name }}</a>
+          <a class="spacer"></a>
           <img style="width:80px; height:80px"  [src]="event.foto" [alt]="event.name">
         </li>
+      </div>
       </ul>
     </div>
   </ng-template>

@@ -1,27 +1,45 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  ...
+<div class="container">
+	<div class="card">
+		<div class="card-image">
+			<h2 class="card-heading">
+				First step
+				<small>Let´s create your account</small>
+			</h2>
+		</div>
+<form class="card-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="input" [formGroup]="registerForm">
+  <input class="input-field" formControlName="name">
+  <label class="input-label" for="name">Name</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="email">
+    <label class="input-label" for="email">Email</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" type="password" formControlName="password">
+    <label class="input-label" for="password">Password</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" type="password" formControlName="repeatPassword">
+    <label class="input-label" for="repeatPassword">Repeat Password</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="birthdate">
+    <label class="input-label" for="birthdate">Birthdate</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="location">
+    <label class="input-label" for="location">Location</label>
+  </div>
+  <div class="input" [formGroup]="registerForm">
+    <input class="input-field" formControlName="rol">
+    <label class="input-label" for="rol">Rol</label>
+  </div>
 
-  <div class="register-form-container" for="name" [formGroup]="registerForm">Name
-    <input formControlName="name">
+  <div class="card-info">
+    <p>By registering up you are agreeing to our Terms and Conditions</p>
   </div>
-  <div class="register-form-container" for="email"  [formGroup]="registerForm">Email
-    <input type="email" formControlName="email">
-  </div>
-  <div class="register-form-container" for="password"  [formGroup]="registerForm">Password
-    <input type="password" formControlName="password">
-  </div>
-  <div class="register-form-container" for="repeatPassword" [formGroup]="registerForm">Repeat Password
-    <input type="password" formControlName="repeatPassword">
-  </div>
-  <div class="register-form-container" for="birthdate"  [formGroup]="registerForm">Birthdate
-    <input type="date" formControlName="birthdate">
-  </div>
-  <div class="register-form-container" for="location" [formGroup]="registerForm">Location
-    <input formControlName="location">
-  </div>
-  <div class="register-form-container" for="rol" [formGroup]="registerForm">Rol
-    <input formControlName="rol">
-  </div>
-
-  <button class="register-btn" type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Register</button>
+  <div class="registerBtnContainer">
+  <button  type="submit" class="registerBtn" [disabled]="!registerForm.valid">Register</button>
+</div>
 </form>
