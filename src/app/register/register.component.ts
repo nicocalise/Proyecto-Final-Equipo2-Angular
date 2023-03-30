@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl  } from '@angular/forms';
+import { passwordPattern, comparePassword, checkPasswordStrength } from '../utils/validators'
 
 @Component({
   selector: 'app-register',
@@ -11,24 +11,47 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 })
 export class RegisterComponent {
   //TODO crear modelo del usuario.
-  registerForm: FormGroup;
+  registerForm!: FormGroup;
+
+
 
   userData = { name: '', email: '', password: '', birthdate: '', location: '', rol: 'user' };
 
   constructor(private http: HttpClient, private router: Router, private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      birthdate: ['', Validators.required],
-      location: ['', Validators.required],
-      rol: ['user', Validators.required],
+    // this.registerForm = this.fb.group({
+    //   name: ['', [Validators.required, Validators.min(1), Validators.maxLength(15)]],
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: ['', [Validators.required, Validators.pattern(passwordPattern)]],
+    //   repeatPassword: ['', [Validators.required, passwordMatchValidator]],
+    //   birthdate: ['', Validators.required],
+    //   location: ['', Validators.required],
+    //   rol: ['user', Validators.required],
 
-    });
-  }
+}
+
+     ngOnInit(){
+
+
+        this.registerForm = this.fb.group({
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required]],
+        password: ['', [Validators.required]],
+        repeatPassword: ['', [Validators.required]],
+        birthdate: ['', Validators.required],
+        location: ['', Validators.required],
+        rol: ['user', Validators.required]
+        },
+        {
+          validator: passwordMatchValidator
+        });
+      }
+
+
+
 
   onSubmit() {
-    if (this.registerForm.valid) {
+
+    debugger
       const url = 'http://localhost:3000/users/register';
       const userData = this.registerForm.value;
       this.http.post(url, userData).subscribe(response => {
@@ -38,11 +61,16 @@ export class RegisterComponent {
         console.error(error);
         // Mostrar un mensaje de error al usuario
       });
-    } else {
-      // Mostrar errores de validación
-      Object.values(this.registerForm.controls).forEach(control => {
-        control.markAsTouched();
-      });
     }
   }
-}
+
+  function passwordMatchValidator(formgroup: FormGroup): {[key: string]: boolean} | null {
+
+    const password = formgroup.get('password');
+    const repeatPassword = formgroup.get('repeatPassword');
+
+    return password && repeatPassword && password.value !== repeatPassword.value ?
+      { 'passwordMismatch': true } :
+      null}
+
+
