@@ -2,10 +2,16 @@
 <p>{{event?.description}}</p>
 <p>{{event?.date}}</p>
 <p>{{event?._id}}</p>
+<p>{{event?.capacity}}</p>
 
 <div class="crud-buttons">
-    <button mat-button>Editar</button>
-    <button mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
-  </div>
+  <button mat-button>Editar</button>
+  <button mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
+</div>
+
+<div>
+  <input type="text" id="quantity" name="quantity" #quantity>
+  <button mat-button (click)="buyTickets(quantity.value)">Comprar tickets</button>
+</div>
 
 <a [routerLink]="['/home']"> Atras</a>

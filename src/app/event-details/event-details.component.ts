@@ -1,3 +1,4 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { EventInterface } from './../home/models/events.model';
 import { Component } from '@angular/core';
@@ -13,7 +14,7 @@ export class EventDetailsComponent {
   public eventId: string ='';
   public event?: EventInterface;
 
-  constructor(private activatedRoute: ActivatedRoute, private requestService: ApiRequestService) {}
+  constructor(private activatedRoute: ActivatedRoute, private requestService: ApiRequestService, private http: HttpClient) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -47,6 +48,30 @@ export class EventDetailsComponent {
       (response: EventInterface) => {
         this.event = response;
       });
+  }
+
+  public buyTickets(quantity:string):void{
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const eventId = params.get('event._id') as string;
+      const cantidad_comprada = quantity;
+
+      this.http.post<any>('http://localhost:3000/events/comprar/'+eventId,
+       '', 
+       { params: { cantidad_comprada : cantidad_comprada}}
+       ).subscribe(
+      (response) => {
+        console.log(response);
+        location.reload();
+        //this.cookieService.set('rol', response.data.user.user);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    });    
+
+    
   }
 
 }
