@@ -5,7 +5,8 @@
 <p>{{event?.capacity}}</p>
 
 <div class="crud-buttons">
-  <button mat-button>Editar</button>
+  <button mat-button [routerLink]="['/new-event/',event?._id]">Editar</button>
+  
   <button mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
 </div>
 
