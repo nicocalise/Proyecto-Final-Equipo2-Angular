@@ -15,7 +15,7 @@ export class LoginComponent {
   constructor(private http: HttpClient,private router: Router,private cookieService: CookieService) {}
 
   onSubmit() {
-    this.http.post<any>('http://localhost:3000/users/login', this.userData).subscribe(
+    this.http.post<any>('https://proyecto-final-equipo2-node.vercel.app/users/login', this.userData).subscribe(
       (response) => {
         console.log(response);
         this.cookieService.set('token', response.data.token);
@@ -36,29 +36,5 @@ export class LoginComponent {
       }
     );
   }
-
-
-
 }
 
-
-
-//import { Injectable } from '@angular/core';
-//import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
-//
-//@Injectable()
-//export class AuthInterceptor implements HttpInterceptor {
-//constructor(private cookieService: CookieService) {}
-//  this.cookieService.set('token', response.token);
-//  intercept(req: HttpRequest<any>, next: HttpHandler) {
-//  const token = this.cookieService.get('token');
-//
-//  if (token) {
-//    const authReq = req.clone({
-//    headers: req.headers.set('Authorization', `Bearer ${token}`)
-//  });
-//  return next.handle(authReq);
-//}
-//  return next.handle(req);
-// }
-//}

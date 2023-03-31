@@ -63,7 +63,7 @@ public logout()
   this.cookieService.delete('token');
   this.cookieService.delete('rol');
 
-  const url = 'http://localhost:3000/users/logout';
+  const url = 'https://proyecto-final-equipo2-node.vercel.app/users/logout';
   let headers = new HttpHeaders({
         'Authorization' : 'Bearer ' + token,
         'Content-type' : 'application/json',

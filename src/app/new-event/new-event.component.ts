@@ -45,7 +45,7 @@ export class NewEventComponent {
     });
 debugger
     if(this.eventId == ''){
-    this.http.post<any>('http://localhost:3000/events/create', this.eventData).subscribe(
+    this.http.post<any>('https://proyecto-final-equipo2-node.vercel.app/events/create', this.eventData).subscribe(
         
     (response) => {
         console.log(response);
@@ -57,7 +57,7 @@ debugger
       }
     );
     } else{
-      this.http.put<any>('http://localhost:3000/events/'+this.eventData._id, 
+      this.http.put<any>('https://proyecto-final-equipo2-node.vercel.app/events/'+this.eventData._id, 
       {
         name: this.eventData.name,
         description: this.eventData.description,
