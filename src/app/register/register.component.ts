@@ -33,7 +33,7 @@ export class RegisterComponent {
       }
 
   onSubmit() {
-      const url = 'http://localhost:3000/users/register';
+      const url = 'https://proyecto-final-equipo2-node.vercel.app/users/register';
       const userData = this.registerForm.value;
       this.http.post(url, userData).subscribe(response => {
         console.log(response);
