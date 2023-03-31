@@ -1,1 +1,7 @@
-<p>user works!</p>
+<p *ngIf="user"> Sr/Sra: {{user.name}} Sus Tickets Adquiridos</p>
+
+<div *ngFor="let ticket of tickets">
+    <p>{{ticket.name}}</p>
+
+
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 const baseURL = 'http://localhost:3000/';
 const eventURL = baseURL + 'events';
+const userURL = baseURL + 'users';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class ApiRequestService {
 
   deleteEventID(id:string):Observable<any>{
     return this.http.delete(eventURL+'/'+id);
+  }
+
+  getUserID(id:string):Observable<any>{
+    return this.http.get(userURL+'/'+id);
   }
 };
