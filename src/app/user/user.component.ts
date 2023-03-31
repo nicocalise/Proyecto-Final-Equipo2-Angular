@@ -1,3 +1,8 @@
+import { UserInterface } from './../home/models/users.model';
+import { ApiRequestService } from 'src/app/services/api-request.service';
+import { EventInterface } from './../home/models/events.model';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,15 +11,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  example: string;
+  searchResults: any[] = [];
+  tickets: any[] = [];
+  idUser = this.cookieService.get('id');
+  public event?: EventInterface;
+  public user?: UserInterface;
+  
 
-  constructor() {
-    this.example = 'Pagina del usuario';
-    console.log('constructor finalizado');
-  }
+  constructor(private http: HttpClient ,private cookieService: CookieService,private requestService: ApiRequestService) {}
 
   ngOnInit() {
-    console.log(this.example);
-    console.log('ngOnInit finalizado');
+    if(!this.idUser){
+      console.log('El usuario no esta logueado');
+    }else{
+    this.http.get<any[]>(`http://localhost:3000/tickets/`+this.idUser, {}).subscribe(data => {
+      this.searchResults = data;
+      console.log(this.searchResults);
+
+      this.searchResults.forEach(element => {
+
+        this.requestService.getEventID(element.idEvent).subscribe(
+          (response: EventInterface) => {
+            this.event = response;
+            this.tickets.push(this.event);
+          });
+
+      });
+
+      this.requestService.getUserID(this.idUser).subscribe(
+        (response:UserInterface)=>{
+          this.user = response;
+        }
+        );
+      });
+    }
   }
+
+
+
 }
