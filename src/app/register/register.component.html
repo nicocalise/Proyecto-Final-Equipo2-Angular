@@ -24,16 +24,16 @@
     <label class="input-label" for="repeatPassword">Repeat Password</label>
   </div>
   <div class="input" [formGroup]="registerForm">
-    <input class="input-field" formControlName="birthdate">
+    <input class="input-field" type="date" formControlName="birthdate">
     <label class="input-label" for="birthdate">Birthdate</label>
   </div>
   <div class="input" [formGroup]="registerForm">
     <input class="input-field" formControlName="location">
     <label class="input-label" for="location">Location</label>
   </div>
-  <div class="input" [formGroup]="registerForm">
-    <input class="input-field" formControlName="rol">
-    <label class="input-label" for="rol">Rol</label>
+  <div hidden class="input" [formGroup]="registerForm">
+    <input hidden class="input-field" formControlName="rol">
+    <label hidden class="input-label" for="rol">Rol</label>
   </div>
 
   <div class="card-info">
