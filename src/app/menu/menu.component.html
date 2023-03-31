@@ -15,7 +15,11 @@
   <button mat-button class="customizeButton" *ngFor="let menuItem of options" [routerLink]="menuItem.route">
     {{ menuItem.name }}
   </button>
-  <button *ngIf="token" (click)="logout()">Logout</button>
+  <button mat-button class="customizeButton" *ngIf="!token; else logoutButton" [routerLink]="['/register']">Register</button>
+  <button mat-button class="customizeButton" *ngIf="!token" [routerLink]="['/login']">Log in</button>
+  <ng-template #logoutButton>
+    <button mat-button class="customizeButton" (click)="logout()">Logout</button>
+  </ng-template>
 </ng-template>
 
 <!--<router-outlet></router-outlet>-->

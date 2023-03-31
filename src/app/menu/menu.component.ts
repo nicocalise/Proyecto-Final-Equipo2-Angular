@@ -15,8 +15,6 @@ export class MenuComponent {
   options = [  { name: 'Home', route: '/home' },
               { name: 'About Us', route: '/about-us' },
               { name: 'User', route: '/user' },
-              { name: 'Register', route: '/register' },
-              { name: 'Log in', route: '/login' }
               ];
   useMenu = true;
 
