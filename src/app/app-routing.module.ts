@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'logout', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'new-event', component: NewEventComponent },
+  { path: 'new-event/:event._id', component: NewEventComponent },
 ];
 
 @NgModule({
