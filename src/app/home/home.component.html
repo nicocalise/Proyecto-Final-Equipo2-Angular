@@ -3,31 +3,46 @@
     <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
   </div>
   <div *ngIf="eventList.length">
-    <p class="mainLogo">EVENTS</p>
-      <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
+    <div class="containerCard">
+      <div class="card">
+        <div class="card-image">
+          <h2 class="card-heading">
+            CHECK EVENTS
+            <small>Because we know you like them</small>
+          </h2>
 
+        </div>
+      </div>
+    </div>
+      <!--TODO - Que aparezca unicamente cuando el usuario (Admin) este loggeado-->
+<div class="spacer">
   <app-search-bar (searchEvent)="onSearch($event)"></app-search-bar>
     <div *ngIf="searchResults.length;else other_content">
+    </div>
     <ul class="list" *ngFor="let result of searchResults">
       <div class="eventBorder">
-      <li>
-        <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result.name }}</a>
-        <a class="spacer"></a>
-        <img style="width:80px; height:80px"  [src]="result.foto" [alt]="result.name">
+        <figure>
+      <li class="eventContainer">
+        <img class="eventImage"  [src]="result.foto" [alt]="result.name">
+        <figcaption> <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result.name }}</a> </figcaption>
       </li>
+    </figure>
     </div>
     </ul>
   </div>
 
   <ng-template #other_content>
     <div>
+
       <ul class="list" *ngFor="let event of eventList">
         <div class="eventBorder">
-        <li>
-          <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event.name }}</a>
-          <a class="spacer"></a>
-          <img style="width:80px; height:80px"  [src]="event.foto" [alt]="event.name">
+          <figure>
+
+        <li class="eventContainer">
+          <img class="eventImage"  [src]="event.foto" [alt]="event.name">
+          <figcaption> <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event.name }}</a> </figcaption>
         </li>
+    </figure>
       </div>
       </ul>
     </div>

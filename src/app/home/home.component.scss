@@ -7,13 +7,28 @@
   text-align: center;
 }
 
-.filter-buttons{
-  flex: 1 1 auto;
-}
 
+.eventContainer{
+  width: 600px;
+  height: 180px;
+  position: relative;
+  align-items: center;
+  margin: auto;
+}
+/*
+.container{
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+}
+*/
+/*
 .matList{
   flex: 1 1 auto;
 }
+*/
 
 .list{
   list-style-type:none;
@@ -28,25 +43,86 @@
 }
 
 .spacer{
-  margin: 1vh;
+  margin: 30px;
 }
-
+/*
 .eventBorder{
   border: 2px solid black;
   padding: 3vh;
   border-radius: 20px;
 }
+*/
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+.card {
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+  height: 300px;
+	max-width: 600px;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px 0 rgba(#999, .25);
+	padding: .75rem;
+}
+
+.card-image {
+  max-width: 500px;
+	border-radius: 8px;
+	overflow: hidden;
+	padding-bottom: 50%;
+  padding-right: 50%;
+	background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2021/02/04/USATODAY/usatsports/red-movie-theater-seats.jpg?width=2120&height=1192&fit=crop&format=pjpg&auto=webp');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 5%;
+	position: relative;
+}
+
+.card-heading {
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	right: 10%;
+	font-size: 3rem;
+	font-weight: 700;
+	color: #f6f3f3;
+	line-height: 1.222;
+  small {
+		display: block;
+		font-size: .70em;
+		font-weight: 400;
+		margin-top: .50em;
+	}
+}
+
 
 a[ng-reflect-router-link] {
-  color: black;
-  font-weight: 700;
+  color: rgb(248, 247, 247);
   text-decoration: none;
+  text-align: center;
 }
 
 tr[ng-reflect-router-link] {
   cursor: pointer;
 }
 
+.btn{
+  margin: auto;
+  text-align: center;
+  display: flex;
+  margin-top: 65px;
+  margin-left: 100px;
+  min-width: 40px;
+  min-height: 60px;
+}
+
+/*
 .btn{
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -63,15 +139,71 @@ tr[ng-reflect-router-link] {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+*/
 
+/*
 .btn:active{
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
 }
+*/
 
 @media (min-width: 768px) {
   .btn{
     padding: 0.25em 0.75em;
   }
+}
+
+
+figure {
+  position: relative;
+  text-align: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+figure > * {
+  grid-area: 1/1;
+  transition: .4s;
+}
+figure figcaption {
+  position: absolute;
+    left: 50%;                        /* horizontal alignment */
+    top: 50%;                         /* vertical alignment */
+    transform: translate(-50%, -50%);
+text-align: center;
+padding: 0.25em 6.75em;
+  min-width: 600px;
+  min-height: 180px;
+  font-family: sans-serif;
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #fbf9f900;
+  padding: .75rem;
+  background: var(--c,#0009);
+  clip-path: inset(0 var(--_i,100%) 0 0);
+  -webkit-mask:
+    linear-gradient(#f8f8f8 1 1),
+    linear-gradient(#efefef 1 1);
+  -webkit-mask-composite: xor;
+  -webkit-mask-clip: text, padding-box;
+}
+figure:hover figcaption{
+  --_i: 0%;
+}
+figure:hover img {
+  transform: scale(1.2);
+}
+@supports not (-webkit-mask-clip: text) {
+  figure figcaption {
+   -webkit-mask: none;
+   color: #f5f5f5;
+  }
+}
+
+.eventImage{
+  min-width: 100%;
+  min-height: 100%;
 }
