@@ -3,11 +3,16 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <mat-menu #menu="matMenu"  xPosition="before" yPosition="below">
-    <button mat-menu-item *ngFor="let menuItem of options" (click)="onMenuItemClick($event, menuItem)">
+  <mat-menu  #menu="matMenu"  xPosition="before" yPosition="below">
+    <button mat-button class="customizeButton" *ngFor="let menuItem of options" [routerLink]="menuItem.route">
       {{ menuItem.name }}
     </button>
-    <button>Logout</button>
+    <button class="customizeButton" *ngIf="token" (click)="logout()">Logout</button>
+    <button class="customizeButton" mat-button [routerLink]="['/register']" *ngIf="!token">Register</button>
+    <button class="customizeButton" mat-button [routerLink]="['/login']" *ngIf="!token">Log in</button>
+  </mat-menu>
+  <mat-menu>
+
   </mat-menu>
 </div>
 
@@ -18,8 +23,9 @@
   <button mat-button class="customizeButton" *ngIf="!token; else logoutButton" [routerLink]="['/register']">Register</button>
   <button mat-button class="customizeButton" *ngIf="!token" [routerLink]="['/login']">Log in</button>
   <ng-template #logoutButton>
-    <button mat-button class="customizeButton" (click)="logout()">Logout</button>
+    <button mat-button class="customizeButton"(click)="logout()">Logout</button>
   </ng-template>
 </ng-template>
 
 <!--<router-outlet></router-outlet>-->
+
