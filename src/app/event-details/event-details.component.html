@@ -1,12 +1,25 @@
-<p>Soy el evento: {{ event?.name }}</p>
-<p>{{event?.description}}</p>
-<p>{{event?.date}}</p>
-<p>{{event?._id}}</p>
-<p>{{event?.capacity}}</p>
+<div class="containerCard">
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+      </h2>
+      <div class ="eventInfoContainer">
+      <h1 classs="eventName">{{ event?.name }}</h1>
+        <p class ="eventInfo">Description: {{event?.description}}</p>
+        <p class ="eventInfo">Event date: {{event?.date}}</p>
+        <p class ="eventInfo">Event identificator: {{event?._id}}</p>
+        <p class ="eventInfo">Tickes available: {{event?.capacity}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="crud-buttons">
   <button mat-button [routerLink]="['/new-event/',event?._id]">Editar</button>
-  
+
   <button mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
 </div>
 

@@ -1,0 +1,41 @@
+.card {
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+  height: 700px;
+	max-width: 600px;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px 0 rgba(#999, .25);
+	padding: .75rem;
+}
+
+.card-image {
+  max-width: 500px;
+  max-height: 700px;
+	border-radius: 8px;
+	overflow: hidden;
+	padding-bottom: 50%;
+  padding-right: 50%;
+	background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2021/02/04/USATODAY/usatsports/red-movie-theater-seats.jpg?width=2120&height=1192&fit=crop&format=pjpg&auto=webp');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 5%;
+	position: relative;
+}
+
+.card-heading {
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	right: 10%;
+	font-size: 3rem;
+	font-weight: 700;
+	color: #0e0d0d;
+	line-height: 1.222;
+}
+
+.eventInfoContainer{
+
+}
