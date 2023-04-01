@@ -17,15 +17,26 @@ export class EventDetailsComponent {
   public eventId: string ='';
   public event?: EventInterface;
   public idUser: string ='';
-  public isAdmin: string = this.coockieService.get('rol');
+  isAdmin?:boolean;
+  rol?:String;
+
+
 
 
   constructor(private activatedRoute: ActivatedRoute,
               private requestService: ApiRequestService,
               private http: HttpClient,
-              private coockieService:CookieService) {}
+              private cookieService:CookieService) {
+
+              }
 
   ngOnInit() {
+    const token = this.cookieService.get('token');
+    this.rol = this.cookieService.get('rol');
+    if(this.rol == 'admin'){
+      this.isAdmin = true;
+      console.log(this.isAdmin);
+    }
     this.activatedRoute.paramMap.subscribe((params) => {
       this.eventId = params.get('event._id') as string;
       this.getEventId(this.eventId);
@@ -60,7 +71,7 @@ export class EventDetailsComponent {
   }
 
   public buyTickets(quantity:string):void{
-    this.idUser= this.coockieService.get('id');
+    this.idUser= this.cookieService.get('id');
     this.activatedRoute.paramMap.subscribe((params) => {
       const eventId = params.get('event._id') as string;
       const cantidad_comprada = quantity;
