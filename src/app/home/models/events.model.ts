@@ -5,7 +5,7 @@ export interface EventInterface{
   location : string;
   date : string;
   eventType: string;
-  capacity : string;
+  capacity : number;
   duration : string;
   foto: string;
 }

@@ -17,6 +17,7 @@ export class EventDetailsComponent {
   public eventId: string ='';
   public event?: EventInterface;
   public idUser: string ='';
+  public isAdmin: string = this.coockieService.get('rol');
 
 
   constructor(private activatedRoute: ActivatedRoute,

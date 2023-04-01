@@ -1,13 +1,18 @@
-<p *ngIf="user"> Sr/Sra: {{user.name}} Sus Tickets Adquiridos</p>
-<div *ngFor="let item of searchResults">
-  <p>{{item.idEvent.name}}</p>
-  <p>{{item.idEvent.date}}</p>
-<img src="{{item.idEvent.foto}}" width="50px" height="50px" alt="">
+<div class="container">
+	<div class="card">
+		<div class="card-image">
+			<h2 class="card-heading">
+				<p *ngIf="user">Welcome: {{user.name}}</p>
+				<small>Tickets adquired</small>
+			</h2>
+		</div>
+
+<div class="cardForm">
+  <h1>EVENTS BOOKED</h1>
+  <div *ngFor="let item of searchResults">
+      <p>{{item.idEvent.name}}</p>
+      <p>{{item.idEvent.date}}</p>
+      <img src="{{item.idEvent.foto}}" width="50px" height="50px" alt="">
+   </div>
 </div>
-<!-- <div *ngFor="let ticket of tickets">
-    <p>{{ticket.name}}</p>
-    <p>{{ticket._id}}</p>
-    <!-- <button (click)="eliminarTicket(ticket._id)">Eliminar</button> -->
 
-
-<!-- </div> --> -->

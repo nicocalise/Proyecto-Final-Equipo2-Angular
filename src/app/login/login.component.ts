@@ -22,8 +22,9 @@ export class LoginComponent {
         this.cookieService.set('rol', response.data.user.rol);
         this.cookieService.set('id', response.data.user._id);
         if(response.data){
-        this.router.navigate(['/about-us']);
-        location.reload();
+        this.router.navigate(['/home']).then(()=>{
+          location.reload();
+        });
         }else{
         console.log('No coinciden mail o contraseña ingresados');
         }
@@ -35,29 +36,5 @@ export class LoginComponent {
       }
     );
   }
-
-
-
 }
 
-
-
-//import { Injectable } from '@angular/core';
-//import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
-//
-//@Injectable()
-//export class AuthInterceptor implements HttpInterceptor {
-//constructor(private cookieService: CookieService) {}
-//  this.cookieService.set('token', response.token);
-//  intercept(req: HttpRequest<any>, next: HttpHandler) {
-//  const token = this.cookieService.get('token');
-//
-//  if (token) {
-//    const authReq = req.clone({
-//    headers: req.headers.set('Authorization', `Bearer ${token}`)
-//  });
-//  return next.handle(authReq);
-//}
-//  return next.handle(req);
-// }
-//}

@@ -1,35 +1,45 @@
-<form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="eventData.name">
+<div class="container">
+	<div class="card">
+		<div class="card-image">
+			<h2 class="card-heading">
+				Update event
+				<small>Want changes?</small>
+			</h2>
+		</div>
+<form class="card-form" (ngSubmit)="onSubmit()">
+    <div class="input">
+      <input type="text" class="input-field" id="name" name="name" [(ngModel)]="eventData.name">
+      <label class="input-label" for="name">Name</label>
     </div>
-    <div class="form-group">
-      <label for="description">Descripcion</label>
-      <input type="text" class="form-control" id="description" name="description" [(ngModel)]="eventData.description">
+    <div class="input">
+      <input type="text" class="input-field" id="description" name="description" [(ngModel)]="eventData.description">
+      <label class="input-label" for="description">Description</label>
     </div>
-    <div class="form-group">
-      <label for="location">Lugar del evento</label>
-      <input type="text" class="form-control" id="location" name="location" [(ngModel)]="eventData.location">
+    <div class="input">
+      <input type="text" class="input-field" id="location" name="location" [(ngModel)]="eventData.location">
+      <label class="input-label" for="location">Event Location</label>
     </div>
-    <div class="form-group">
-      <label for="date">Fecha</label>
-      <input type="text" class="form-control" id="date" name="date" [(ngModel)]="eventData.date">
+    <div class="input">
+      <input type="text" class="input-field" id="date" name="date" [(ngModel)]="eventData.date">
+      <label class="input-label" for="date">Date</label>
     </div>
-    <div class="form-group">
-      <label for="eventType">Categoria</label>
-      <input type="text" class="form-control" id="eventType" name="eventType" [(ngModel)]="eventData.eventType">
+    <div class="input">
+      <input type="text" class="input-field" id="eventType" name="eventType" [(ngModel)]="eventData.eventType">
+      <label class="input-label" for="eventType">Category</label>
     </div>
-      <div class="form-group">
-        <label for="capacity">Capacidad</label>
-        <input type="text" class="form-control" id="capacity" name="capacity" [(ngModel)]="eventData.capacity">
+      <div class="input">
+        <input type="text" class="input-field" id="capacity" name="capacity" [(ngModel)]="eventData.capacity">
+        <label class="input-label" for="capacity">Capacity</label>
       </div>
-      <div class="form-group">
-        <label for="duration">Duracion</label>
-        <input type="text" class="form-control" id="duration" name="duration" [(ngModel)]="eventData.duration">
+      <div class="input">
+        <input type="text" class="input-field" id="duration" name="duration" [(ngModel)]="eventData.duration">
+        <label class="input-label" for="duration">Duration</label>
       </div>
-      <div class="form-group">
-        <label for="foto">Imagen</label>
-        <input type="file" class="form-control" id="foto" name="foto" [(ngModel)]="eventData.foto">
+      <div class="input">
+        <input type="file" class="input-field" id="foto" name="foto" [(ngModel)]="eventData.foto">
+        <label class="input-label" for="foto">Image</label>
       </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+      <div class="updateBtnContainer">
+    <button type="submit" class="updateBtn">Update</button>
+      </div>
   </form>
