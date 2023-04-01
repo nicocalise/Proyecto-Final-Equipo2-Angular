@@ -15,20 +15,6 @@
   align-items: center;
   margin: auto;
 }
-/*
-.container{
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-auto-flow: column;
-  place-content: center;
-}
-*/
-/*
-.matList{
-  flex: 1 1 auto;
-}
-*/
 
 .list{
   list-style-type:none;
@@ -45,13 +31,7 @@
 .spacer{
   margin: 30px;
 }
-/*
-.eventBorder{
-  border: 2px solid black;
-  padding: 3vh;
-  border-radius: 20px;
-}
-*/
+
 
 img {
 	max-width: 100%;
@@ -77,10 +57,10 @@ img {
 	overflow: hidden;
 	padding-bottom: 50%;
   padding-right: 50%;
-	background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2021/02/04/USATODAY/usatsports/red-movie-theater-seats.jpg?width=2120&height=1192&fit=crop&format=pjpg&auto=webp');
+	background-image: url('https://e0.pxfuel.com/wallpapers/783/613/desktop-wallpaper-agenda.jpg');
 	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: 0 5%;
+	background-size: 120%;
+	background-position: 0% 50%;
 	position: relative;
 }
 
@@ -91,7 +71,7 @@ img {
 	right: 10%;
 	font-size: 3rem;
 	font-weight: 700;
-	color: #f6f3f3;
+	color: #0b0b0b;
 	line-height: 1.222;
   small {
 		display: block;
@@ -121,33 +101,6 @@ tr[ng-reflect-router-link] {
   min-width: 40px;
   min-height: 60px;
 }
-
-/*
-.btn{
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-*/
-
-/*
-.btn:active{
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
-*/
 
 @media (min-width: 768px) {
   .btn{
@@ -206,4 +159,67 @@ figure:hover img {
 .eventImage{
   min-width: 100%;
   min-height: 100%;
+}
+
+
+.customizeButton{
+  margin:1vh;
+  background: #fff;
+  backface-visibility: hidden;
+  border-radius: .375rem;
+  border-style: solid;
+  border-width: .125rem;
+  box-sizing: border-box;
+  color: #212121;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,Helvetica,sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  padding: .400rem 1.125rem;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.customizeButton:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.customizeButton:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.customizeButton:focus {
+  outline: 0 solid transparent;
+}
+
+.customizeButton:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.customizeButton:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.customizeButton:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.customizeButton:not(:disabled):active {
+  transform: translateY(.125rem);
 }
