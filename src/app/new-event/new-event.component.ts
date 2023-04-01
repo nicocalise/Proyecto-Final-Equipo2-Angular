@@ -29,22 +29,20 @@ export class NewEventComponent {
               private requestService:ApiRequestService) {}
 
   ngOnInit(){
-
     this.activatedRoute.paramMap.subscribe((params) => {
-      this.eventId = params.get('event._id') as string;
-      this.getEventId(this.eventId);
+      if(params.get('event._id')!=null){
+        this.eventId = params.get('event._id') as string;
+        this.getEventId(this.eventId);
+      }
     });
-
   }
 
   onSubmit() {
-
     this.activatedRoute.paramMap.subscribe((params) => {
       this.eventId = params.get('event._id') as string;
-      //this.getEventId(this.eventId);
     });
-debugger
-    if(this.eventId == ''){
+
+    if(this.eventId == '' || this.eventData._id == 0){
     this.http.post<any>('http://localhost:3000/events/create', this.eventData).subscribe(
         
     (response) => {
@@ -65,7 +63,8 @@ debugger
         date : this.eventData.date,
         eventType: this.eventData.eventType,
         capacity : this.eventData.capacity,
-        duration: this.eventData.duration
+        duration: this.eventData.duration,
+        foto: this.eventData.foto
       }).subscribe(
         
       (response) => {

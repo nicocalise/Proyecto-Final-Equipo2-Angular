@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngIf="isAdmin" class="crud-buttons">
-    <button mat-button [routerLink]="['/new-event/']">Crear Evento</button>
+    <button class="customizeButton" mat-button [routerLink]="['/new-event/']">Crear Evento</button>
   </div>
   <div *ngIf="eventList.length">
     <div class="containerCard">
