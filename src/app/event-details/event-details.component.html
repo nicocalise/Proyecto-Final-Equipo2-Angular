@@ -1,9 +1,24 @@
-
+<div class="containerCard">
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+        Event Information
+        <small>Be ready, we almost there</small>
+      </h2>
+    </div>
+  </div>
+  <div class="eventInfo">
+    <h1 class="eventName">{{ event?.name }}</h1>
+    <p>Description: {{event?.description}}</p>
+    <p>Event Date: {{event?.date}}</p>
+    <p>Event Identicator: {{event?._id}}</p>
+    <p>Tickets Available: {{event?.capacity}}</p>
+  </div>
 
 <div class="buttonsContainer">
 <div class="crud-buttons">
-  <button mat-button [routerLink]="['/new-event/',event?._id]">Editar</button>
-  <button mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
+  <button *ngIf="isAdmin" class ="customizeButton" mat-button [routerLink]="['/new-event/',event?._id]">Editar</button>
+  <button *ngIf="isAdmin" class ="customizeButton" mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
 </div>
 
 <div>
@@ -14,5 +29,3 @@
 <a class ="customizeButton" [routerLink]="['/home']"> Back</a>
 </div>
 </div>
-
-<a [routerLink]="['/home']"> Atras</a>
