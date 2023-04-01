@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "DM Sans", sans-serif;
+	line-height: 1.5;
+	background-color: #f1f3fb;
+	padding: 0 2rem;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+
+// iOS Reset
+input {
+	appearance: none;
+	border-radius: 0;
+}
+
+.card {
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 425px;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px 0 rgba(#999, .25);
+	padding: .75rem;
+  height: 800px;
+}
+
+.card-image {
+	border-radius: 8px;
+	overflow: hidden;
+	padding-bottom: 65%;
+	background-image: url('https://media.istockphoto.com/id/1394594963/photo/calendar-with-pen-on-the-blue-empty-copy-space-for-text-concept-for-busy-timeline-organize.jpg?b=1&s=170667a&w=0&k=20&c=0BH08OVdInGPpvJzo6Q9UrGxyHi9ygBdsYox1jCPuCo=');
+	background-repeat: no-repeat;
+	background-size: 150%;
+	background-position: 100% 5%;
+	position: relative;
+}
+
+.card-heading {
+	position: absolute;
+	left: 10%;
+	top: 15%;
+	right: 10%;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: #000000;
+	line-height: 1.222;
+	small {
+		display: block;
+		font-size: .75em;
+		font-weight: 400;
+		margin-top: .25em;
+	}
+}
+
+.cardForm{
+	padding: 2rem 1rem 0;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  height: 15vh;
+  text-align: center;
+  font-size: 30px;
+}
+
+h1{
+  text-decoration: underline;
+  margin-bottom: 10px;
+  font-size: 40px
+}
+
+.eventName{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
