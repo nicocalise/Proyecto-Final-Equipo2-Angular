@@ -15,8 +15,6 @@
     <p>Tickets Available: {{event?.capacity}}</p>
   </div>
 
-
-
 <div class="buttonsContainer">
 <div class="crud-buttons">
   <button *ngIf="isAdmin" class ="customizeButton" mat-button [routerLink]="['/new-event/',event?._id]">Editar</button>
