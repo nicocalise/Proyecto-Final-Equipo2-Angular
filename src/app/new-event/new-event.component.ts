@@ -11,6 +11,7 @@ import { EventInterface } from '../home/models/events.model';
 })
 export class NewEventComponent {
 
+  file: File | any = null;
   public eventId: string ='';
   public eventData:EventInterface = {
         _id: 0, 
@@ -21,7 +22,7 @@ export class NewEventComponent {
         eventType: '', 
         capacity: 0, 
         duration: '',
-        foto:'' };
+        foto: ''};
 
   constructor(private http: HttpClient, 
               private router: Router, 
@@ -42,8 +43,18 @@ export class NewEventComponent {
       this.eventId = params.get('event._id') as string;
     });
 
+    let testData:FormData = new FormData();
+    testData.append('foto', this.file);
+    testData.append('name', this.eventData.name);
+    testData.append('description', this.eventData.description);
+    testData.append('location', this.eventData.location);
+    testData.append('eventType', this.eventData.eventType);
+    testData.append('capacity', this.eventData.capacity.toString());
+    testData.append('duration', this.eventData.duration);
+    testData.append('date', this.eventData.date);
+
     if(this.eventId == '' || this.eventData._id == 0){
-    this.http.post<any>('http://localhost:3000/events/create', this.eventData).subscribe(
+    this.http.post<any>('http://localhost:3000/events/create', testData).subscribe(
         
     (response) => {
         console.log(response);
@@ -77,6 +88,11 @@ export class NewEventComponent {
         }
       );
     }
+  }
+
+  onFilechange(event: any) {
+    console.log(event.target.files[0])
+    this.file = event.target.files[0]
   }
 
   private getEventId(id:string): void {

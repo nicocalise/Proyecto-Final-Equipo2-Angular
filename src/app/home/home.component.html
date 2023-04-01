@@ -38,7 +38,7 @@
         <div class="eventBorder">
           <figure>
 
-        <li class="eventContainer">
+        <li infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()" class="eventContainer">
           <img class="eventImage"  [src]="event.foto" [alt]="event.name">
           <figcaption> <a class="btn" [routerLink]="['/event-details/',event._id]">{{ event.name }}</a> </figcaption>
         </li>

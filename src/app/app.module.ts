@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { SearchBarComponent } from './search-bar/search-bar.component'
 import { NewEventComponent } from './new-event/new-event.component'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { NewEventComponent } from './new-event/new-event.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    InfiniteScrollModule,
   ],
   providers: [ApiRequestService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
