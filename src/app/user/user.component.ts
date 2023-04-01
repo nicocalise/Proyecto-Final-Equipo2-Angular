@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
     if(!this.idUser){
       console.log('El usuario no esta logueado');
     }else{
-    this.http.get<any[]>(`https://proyecto-final-equipo2-node.vercel.app/tickets/`+this.idUser, {}).subscribe(data => {
+    this.http.get<any[]>(`http://localhost:3000/tickets/`+this.idUser, {}).subscribe(data => {
       this.searchResults = data;
       console.log(this.searchResults);
 

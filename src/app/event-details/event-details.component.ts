@@ -61,7 +61,7 @@ export class EventDetailsComponent {
       const eventId = params.get('event._id') as string;
       const cantidad_comprada = quantity;
 
-      this.http.post<any>('https://proyecto-final-equipo2-node.vercel.app/events/comprar/'+eventId,
+      this.http.post<any>('http://localhost:3000/events/comprar/'+eventId,
        '', 
        { params: { cantidad_comprada : cantidad_comprada}}
        ).subscribe(
@@ -76,7 +76,7 @@ export class EventDetailsComponent {
 
     );
     debugger
-    this.http.post<any>('https://proyecto-final-equipo2-node.vercel.app/tickets/comprar/',
+    this.http.post<any>('http://localhost:3000/tickets/comprar/',
     { idUser: this.idUser, idEvent: eventId}
     ).subscribe(
     
