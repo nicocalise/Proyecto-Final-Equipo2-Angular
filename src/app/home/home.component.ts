@@ -38,7 +38,7 @@ export class HomeComponent {
       this.searchResults = [];
     }
     else{
-    this.http.get<any[]>(`https://proyecto-final-equipo2-node.vercel.app/events/name/`+query).subscribe(data => {
+    this.http.get<any[]>(`http://localhost:3000/events/name/`+query).subscribe(data => {
       this.searchResults = data;
     });
     }
