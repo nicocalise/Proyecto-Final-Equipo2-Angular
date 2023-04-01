@@ -9,7 +9,10 @@
 
 <div class="cardForm">
   <h1>EVENTS BOOKED</h1>
-<div *ngFor="let ticket of tickets">
-    <p class="eventName">- {{ticket.name}} -</p>
-    </div>
+  <div *ngFor="let item of searchResults">
+      <p>{{item.idEvent.name}}</p>
+      <p>{{item.idEvent.date}}</p>
+      <img src="{{item.idEvent.foto}}" width="50px" height="50px" alt="">
+   </div>
 </div>
+
