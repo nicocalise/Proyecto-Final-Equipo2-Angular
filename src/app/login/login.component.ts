@@ -22,7 +22,7 @@ export class LoginComponent {
         this.cookieService.set('rol', response.data.user.rol);
         this.cookieService.set('id', response.data.user._id);
         if(response.data){
-        this.router.navigate(['/about-us']).then(()=>{
+        this.router.navigate(['/home']).then(()=>{
           location.reload();
         });
         }else{

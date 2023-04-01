@@ -71,9 +71,11 @@ public logout()
 
   return this.http.post(url, '' ,{ headers: headers } ).subscribe(
           (response) => {
-
             console.log(response);
-            location.reload();
+              this.router.navigate(['/login']).then(()=>{
+                location.reload();
+              });
+
           });
 
 }};
