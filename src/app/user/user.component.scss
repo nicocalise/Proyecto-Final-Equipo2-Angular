@@ -36,15 +36,27 @@ input {
   height: 800px;
 }
 
+.eventBooked{
+  display:flex;
+  align-items: center;
+  margin:10px;
+}
+
+.eventBookedImg{
+  width:50px;
+  height:50px;
+}
+
 .card-image {
 	border-radius: 8px;
 	overflow: hidden;
 	padding-bottom: 65%;
 	background-image: url('https://media.istockphoto.com/id/1394594963/photo/calendar-with-pen-on-the-blue-empty-copy-space-for-text-concept-for-busy-timeline-organize.jpg?b=1&s=170667a&w=0&k=20&c=0BH08OVdInGPpvJzo6Q9UrGxyHi9ygBdsYox1jCPuCo=');
 	background-repeat: no-repeat;
-	background-size: 150%;
-	background-position: 100% 5%;
+	background-size: 70%;
+	background-position:  50% 20%;
 	position: relative;
+  height: 300px;
 }
 
 .card-heading {
@@ -85,4 +97,122 @@ h1{
 .eventName{
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media (min-width: 801px) {
+
+  .cardForm{
+    font-size: 15px;
+  }
+
+  h1{
+    font-size: 30px;
+
+  }
+
+  .card-image{
+    max-width: 600px;
+    max-height: 100px;
+    margin-bottom: -70px;
+    background-size: 80%;
+	  background-position:  50% 20%;
+
+  }
+
+  .card-heading{
+    font-size: 35px;
+    margin-left: 40px;
+  }
+
+  .card{
+    max-width: 600px;
+  }
+
+  .eventBooked{
+    display:flex;
+    align-items: center;
+    margin:10px;
+  }
+
+  .eventBookedImg{
+    width:100px;
+    height:70px;
+  }
+}
+
+@media (min-width:501px) and  (max-width: 800px) {
+
+
+  .cardForm{
+    font-size: 15px;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+
+  .card-image{
+    max-width: 380px;
+    background-size: 90%;
+	  background-position:  50% 20%;
+    margin-bottom: -80px;
+  }
+
+  .card-heading{
+    font-size: 35px;
+  }
+
+  .card{
+    max-width: 400px;
+  }
+
+  .eventBooked{
+    display:flex;
+    align-items: center;
+    margin:10px;
+  }
+
+  .eventBookedImg{
+    width:80px;
+    height:50px;
+  }
+
+}
+@media (min-width:300px) and  (max-width: 500px) {
+
+  .cardForm{
+    font-size: 15px;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+
+  .card-image{
+    max-width: 380px;
+    background-size: 90%;
+	  background-position:  50% 20%;
+    margin-bottom: -100px;
+  }
+
+  .card-heading{
+    font-size: 35px;
+  }
+
+  .card{
+    max-height: 740px;
+    max-width: 360px;
+  }
+
+  .eventBooked{
+    display:flex;
+    align-items: center;
+    margin:10px;
+  }
+
+  .eventBookedImg{
+    width:80px;
+    height:50px;
+  }
+
 }
