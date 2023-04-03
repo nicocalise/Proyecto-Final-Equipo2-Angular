@@ -10,9 +10,11 @@
 <div class="cardForm">
   <h1>EVENTS BOOKED</h1>
   <div *ngFor="let item of searchResults">
-      <p>{{item.idEvent.name}}</p>
-      <p>{{item.idEvent.date}}</p>
+      <p>Evento: {{item.idEvent.name}}</p>
+      <p>Fecha: {{item.idEvent.date}}</p>
+	  <p>Cantidad entradas: {{item.quantity}}</p>
       <img src="{{item.idEvent.foto}}" width="50px" height="50px" alt="">
+	  <button (click)="eliminarTicket(item._id, item.idEvent._id, item.quantity)">eliminar ticket</button>
    </div>
 </div>
 

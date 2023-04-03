@@ -11,12 +11,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  eliminarTicket() {
-    this.http.delete(`http://localhost:3000/tickets/` + this.ticketId).subscribe(
+  eliminarTicket(id:number, idEvent:number, quantity:string) {
+    this.http.delete(`http://localhost:3000/tickets/` + id).subscribe(
       () => {
         console.log('Ticket eliminado correctamente');
         // Realice cualquier otra acción necesaria después de eliminar el ticket
-      },
+
+          this.http.put<any>('http://localhost:3000/events/'+ idEvent, { quantity:quantity}).subscribe(
+            (response) => {
+            console.log(response);
+            location.reload();
+            },
+            (error) => {
+              console.error('Error al actualizar el evento', error);
+              // Realice cualquier acción necesaria en caso de error
+            }
+    )},
       (error) => {
         console.error('Error al eliminar el ticket', error);
         // Realice cualquier acción necesaria en caso de error
@@ -25,9 +35,7 @@ export class UserComponent implements OnInit {
   }
   searchResults: any[] = [];
   ticketId: any;
-  //tickets: any[] = [];
   idUser = this.cookieService.get('id');
-  // public event?: EventInterface;
   public user?: UserInterface;
 
   constructor(
@@ -45,17 +53,6 @@ export class UserComponent implements OnInit {
         .subscribe((data) => {
           this.searchResults = data;
           console.log(this.searchResults);
-
-          // this.searchResults.forEach((element) => {
-          //   this.requestService
-          //     .getEventID(element.idEvent)
-          //     .subscribe((event: EventInterface) => {
-          //       // this.event = response;
-          //       // this.tickets.push(this.event);
-          //       // console.log(this.tickets);
-
-          //     });
-          // });
 
           this.requestService
             .getUserID(this.idUser)

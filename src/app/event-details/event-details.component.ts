@@ -91,7 +91,7 @@ export class EventDetailsComponent {
 
     );
     this.http.post<any>('http://localhost:3000/tickets/comprar/',
-    { idUser: this.idUser, idEvent: eventId}
+    { idUser: this.idUser, idEvent: eventId, quantity: cantidad_comprada}
     ).subscribe(
 
    (response) => {
