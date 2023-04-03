@@ -19,7 +19,7 @@ export class EventDetailsComponent {
   public idUser: string ='';
   isAdmin?:boolean;
   rol?:String;
-
+  isUser?: boolean;
 
 
 
@@ -36,6 +36,10 @@ export class EventDetailsComponent {
     if(this.rol == 'admin'){
       this.isAdmin = true;
       console.log(this.isAdmin);
+    }
+    if(this.rol === 'user' || this.rol === 'admin'){
+      this.isUser = true;
+      console.log(this.isUser);
     }
     this.activatedRoute.paramMap.subscribe((params) => {
       this.eventId = params.get('event._id') as string;
