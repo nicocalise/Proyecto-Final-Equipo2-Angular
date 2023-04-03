@@ -7,7 +7,6 @@
   text-align: center;
 }
 
-
 .eventContainer{
   width: 600px;
   height: 180px;
@@ -57,7 +56,7 @@ img {
 	overflow: hidden;
 	padding-bottom: 50%;
   padding-right: 50%;
-	background-image: url('https://e0.pxfuel.com/wallpapers/783/613/desktop-wallpaper-agenda.jpg');
+	background-image: url('https://images.unsplash.com/photo-1522158637959-30385a09e0da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGV2ZW50fGVufDB8fDB8fA%3D%3D&w=1000&q=80');
 	background-repeat: no-repeat;
 	background-size: 120%;
 	background-position: 0% 50%;
@@ -105,6 +104,69 @@ tr[ng-reflect-router-link] {
 @media (min-width: 768px) {
   .btn{
     padding: 0.25em 0.75em;
+  }
+}
+
+@media (min-width: 1150px) {
+  .spacer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+  }
+
+  .list{
+    flex: 33.33%;
+    width: 33%;
+  }
+}
+
+@media (min-width:750px) and  (max-width: 1150px) {
+  .spacer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+  }
+
+  .list{
+    flex: 33.33%;
+    width: 50%;
+  }
+}
+
+@media (min-width:300px) and  (max-width: 500px) {
+  .spacer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .list{
+    flex: 33%;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .card-image{
+    max-width: 200px;
+  }
+
+  .card-heading{
+    font-size: 35px;
+  }
+
+  .card{
+    max-height: 180px;
+    max-width: 360px;
   }
 }
 
