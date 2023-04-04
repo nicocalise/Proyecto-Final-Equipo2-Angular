@@ -22,9 +22,9 @@
       <ul class="list" *ngFor="let result of searchResults">
         <div class="eventBorder">
           <figure>
-        <li class="eventContainer">
+        <li class="eventContainer" [routerLink]="['/event-details/',result._id]">
           <img class="eventImage"  [src]="result.foto" [alt]="result.name">
-          <figcaption> <a class="btn" [routerLink]="['/event-details/',result._id]">{{ result.name }}</a> </figcaption>
+          <a class="eventTittle">{{ result.name }}</a>
         </li>
       </figure>
       </div>
