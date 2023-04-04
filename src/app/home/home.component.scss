@@ -8,11 +8,12 @@
 }
 
 .eventContainer{
-  width: 600px;
-  height: 180px;
-  position: relative;
+  max-width: 600px;
+  max-height: 180px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: auto;
+  overflow: hidden;
 }
 
 .list{
@@ -91,14 +92,14 @@ tr[ng-reflect-router-link] {
   cursor: pointer;
 }
 
-.btn{
-  margin: auto;
-  text-align: center;
-  display: flex;
-  margin-top: 65px;
-  margin-left: 100px;
-  min-width: 40px;
-  min-height: 60px;
+.eventTittle{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 30px;
+  color:white;
 }
 
 @media (min-width: 768px) {
@@ -168,6 +169,15 @@ tr[ng-reflect-router-link] {
     max-height: 180px;
     max-width: 360px;
   }
+
+  .eventContainer{
+    width: 600px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 }
 
 
@@ -219,9 +229,16 @@ figure:hover img {
 }
 
 .eventImage{
-  min-width: 100%;
-  min-height: 100%;
+  object-fit: cover;
+  width: 600px;
+  height: 180px;
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%);
+}
 
+.eventImage:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
 }
 
 
