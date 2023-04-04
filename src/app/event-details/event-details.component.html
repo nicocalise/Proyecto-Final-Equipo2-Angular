@@ -21,9 +21,9 @@
   <button *ngIf="isAdmin" class ="customizeButton" mat-button [routerLink]="['/event-details/delete/',event?._id]">Eliminar evento</button>
 </div>
 
-<div>
+<div *ngIf="isUser">
   <input placeholder="Quantity" class="buyTicketsInput" type="text" id="quantity" name="quantity" #quantity>
-  <button *ngIf="isUser" class ="customizeButton" mat-button (click)="buyTickets(quantity.value)">Buy tickets</button>
+  <button class ="customizeButton" mat-button (click)="buyTickets(quantity.value)">Buy tickets</button>
 </div>
 
 <a class ="customizeButton" [routerLink]="['/home']"> Back</a>

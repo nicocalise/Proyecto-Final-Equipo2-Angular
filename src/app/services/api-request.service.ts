@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/';
 const eventURL = baseURL + 'events';
 const userURL = baseURL + 'users';
 

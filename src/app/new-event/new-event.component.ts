@@ -54,7 +54,7 @@ export class NewEventComponent {
     testData.append('date', this.eventData.date);
 
     if(this.eventId == '' || this.eventData._id == 0){
-    this.http.post<any>('http://localhost:3000/events/create', testData).subscribe(
+    this.http.post<any>('https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/events/create', testData).subscribe(
         
     (response) => {
         console.log(response);
@@ -66,7 +66,7 @@ export class NewEventComponent {
       }
     );
     } else{
-      this.http.put<any>('http://localhost:3000/events/'+this.eventData._id, 
+      this.http.put<any>('https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/events/'+this.eventData._id, 
       {
         name: this.eventData.name,
         description: this.eventData.description,

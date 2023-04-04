@@ -18,25 +18,3 @@ export function comparePassword(controlName1: string, controlName2: string) {
     }
   };
 }
-
-export function checkPasswordStrength(password: string): number {
-  // Initialize variables
-  let strength = 0;
-  // Check password length
-  if (password.length > 8) {
-    strength++;
-  }
-  // Check for lowe
-  if (password.match(/[a-z]/)) {
-    strength++;
-  }
-  // Check for capital
-  if (password.match(/[A-Z]/)) {
-    strength++;
-  }
-  // Check for numbers
-  if (password.match(/\d/)) {
-    strength++;
-  }
-  return strength;
-}

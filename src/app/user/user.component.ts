@@ -12,12 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
   eliminarTicket(id:number, idEvent:number, quantity:string) {
-    this.http.delete(`http://localhost:3000/tickets/` + id).subscribe(
+    this.http.delete(`https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/tickets/` + id).subscribe(
       () => {
         console.log('Ticket eliminado correctamente');
         // Realice cualquier otra acción necesaria después de eliminar el ticket
 
-          this.http.put<any>('http://localhost:3000/events/'+ idEvent, { quantity:quantity}).subscribe(
+          this.http.put<any>('https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/events/'+ idEvent, { quantity:quantity}).subscribe(
             (response) => {
             console.log(response);
             location.reload();
@@ -49,7 +49,7 @@ export class UserComponent implements OnInit {
       console.log('El usuario no esta logueado');
     } else {
       this.http
-        .get<any[]>(`http://localhost:3000/tickets/` + this.idUser, {})
+        .get<any[]>(`https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/tickets/` + this.idUser, {})
         .subscribe((data) => {
           this.searchResults = data;
           console.log(this.searchResults);

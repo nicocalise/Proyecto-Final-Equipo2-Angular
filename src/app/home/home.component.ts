@@ -3,8 +3,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { EventInterface } from './models/events.model';
 import { Component, OnInit } from '@angular/core';
 import { ApiRequestService } from 'src/app/services/api-request.service';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
 
 @Component({
   selector: 'app-home',
@@ -49,11 +47,11 @@ export class HomeComponent {
 
   onSearch(query: string) {
     if(query == ""){
-      console.log("No hay na");
+      console.log("No hay eventos cargados");
       this.searchResults = [];
     }
     else{
-    this.http.get<any[]>(`http://localhost:3000/events/name/`+query).subscribe(data => {
+    this.http.get<any[]>(`https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/events/name/`+query).subscribe(data => {
       this.searchResults = data;
     });
     }

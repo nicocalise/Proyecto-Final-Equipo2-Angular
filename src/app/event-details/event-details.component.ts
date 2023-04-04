@@ -1,6 +1,6 @@
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventInterface } from './../home/models/events.model';
 import { Component } from '@angular/core';
 import { ApiRequestService } from '../services/api-request.service';
@@ -21,12 +21,11 @@ export class EventDetailsComponent {
   rol?:String;
   isUser?: boolean;
 
-
-
   constructor(private activatedRoute: ActivatedRoute,
               private requestService: ApiRequestService,
               private http: HttpClient,
-              private cookieService:CookieService) {
+              private cookieService:CookieService,
+              private router: Router) {
 
               }
 
@@ -56,6 +55,7 @@ export class EventDetailsComponent {
         if(url =='delete')
         {
           this.deleteEvent(this.eventId);
+          this.router.navigate(['/home']);
         }
       });
     });
@@ -80,7 +80,7 @@ export class EventDetailsComponent {
       const eventId = params.get('event._id') as string;
       const cantidad_comprada = quantity;
 
-      this.http.post<any>('http://localhost:3000/events/comprar/'+eventId,
+      this.http.post<any>('https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/events/comprar/'+eventId,
        '',
        { params: { cantidad_comprada : cantidad_comprada}}
        ).subscribe(
@@ -94,7 +94,7 @@ export class EventDetailsComponent {
       }
 
     );
-    this.http.post<any>('http://localhost:3000/tickets/comprar/',
+    this.http.post<any>('https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/tickets/comprar/',
     { idUser: this.idUser, idEvent: eventId, quantity: cantidad_comprada}
     ).subscribe(
 

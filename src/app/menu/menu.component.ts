@@ -64,7 +64,7 @@ public logout()
   this.cookieService.delete('rol');
   this.cookieService.delete('id');
 
-  const url = 'http://localhost:3000/users/logout';
+  const url = 'https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/users/logout';
   let headers = new HttpHeaders({
         'Authorization' : 'Bearer ' + token,
         'Content-type' : 'application/json',

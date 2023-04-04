@@ -33,14 +33,12 @@ export class RegisterComponent {
       }
 
   onSubmit() {
-      const url = 'http://localhost:3000/users/register';
+      const url = 'https://proyecto-final-equipo2-node-oahtunfjf-nicocalise.vercel.app/register';
       const userData = this.registerForm.value;
       this.http.post(url, userData).subscribe(response => {
         console.log(response);
-        // Hacer algo con la respuesta del servidor
       }, error => {
         console.error(error);
-        // Mostrar un mensaje de error al usuario
       });
     }
   }
